@@ -279,7 +279,7 @@ static IplImage*** build_gauss_pyr( IplImage* base, int octvs,
 	    gauss_pyr[o][i] = cvCreateImage( cvGetSize(gauss_pyr[o][i-1]),
 					     IPL_DEPTH_32F, 1 );
 	    cvSmooth( gauss_pyr[o][i-1], gauss_pyr[o][i],
-		      CV_GAUSSIAN, 0, 0, sig[i], sig[i] );
+		      CV_GAUSSIAN, 0, 0, sig[i]*pow(2.0, 2.0*o / intvls), sig[i]*pow(2.0, 2.0*o / intvls) );
 	  }
       }
 
